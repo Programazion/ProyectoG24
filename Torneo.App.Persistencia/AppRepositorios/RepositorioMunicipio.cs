@@ -1,16 +1,16 @@
-using Microsoft.EntityFrameworkCore; // Revisar Repositorios DT
+using Microsoft.EntityFrameworkCore;
 using Torneo.App.Dominio;
 namespace Torneo.App.Persistencia
 {
-    public class RepositorioDT : IRepositorioDT
+    public class RepositorioMunicipio : IRepositorioMunicipio
     {
 
         private readonly DataContext _dataContext = new DataContext();
-        public DirectorTecnico AddDT(DirectorTecnico directorTecnico)
+        public Municipio AddMunicipio(Municipio municipio)
         {
-            var DTInsertado = _dataContext.DTs.Add(directorTecnico);
+            var municipioInsertado = _dataContext.Municipios.Add(municipio);
             _dataContext.SaveChanges();
-            return dtInsertado.Entity;
+            return municipioInsertado.Entity;
         }
     }
 }

@@ -1,8 +1,8 @@
 using Torneo.App.Dominio;
 namespace Torneo.App.Persistencia
 {
-    public interface IRepositorioDT
+    public interface IRepositorioMunicipio
     {
-        public DirectorTecnico AddDT(DirectorTecnico DT);
+        public Municipio AddMunicipio(Municipio municipio);
     }
 }
