@@ -4,6 +4,7 @@ namespace Torneo.App.Consola
 {
     class Program
     {
+        private static IRepositorioMunicipio _repoMunicipio = new RepositorioMunicipio();
         private static IRepositorioDT _repoDT = new RepositorioDT();
         static void Main(string[] args)
         {
@@ -17,6 +18,7 @@ namespace Torneo.App.Consola
                 {
                     case 1:
                         AddMunicipio();
+                        break;
                     case 2:
                         AddDT();
                         break;
