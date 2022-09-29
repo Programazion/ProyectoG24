@@ -19,7 +19,12 @@ namespace Torneo.App.Consola
                 Console.WriteLine("2. Insertar Director Técnico");
                 Console.WriteLine("3. Insertar Equipo");
                 Console.WriteLine("4. Insertar Posicion");
-                Console.WriteLine("5. Insertar Partido");
+                Console.WriteLine("5. Insertar Jugador");
+                Console.WriteLine("6. Insertar Partido");
+                Console.WriteLine("7. Mostrar Municipios inscritos");
+                Console.WriteLine("8. Mostrar Dts inscritos");
+                Console.WriteLine("9. Mostrar Equipos inscritos");
+                Console.WriteLine("10. Mostrar Jugadores Activos");
                 Console.WriteLine("0. Salir");
                 opcion = Int32.Parse(Console.ReadLine());
                 switch (opcion)
@@ -43,6 +48,24 @@ namespace Torneo.App.Consola
                     case 6:
                         AddPartido();
                         break;
+                    case 7: 
+                        GetAllMunicipios();
+                        break;
+                    case 8: 
+                        GetAllDTs(); //Revisar desde acá todos los GetALl
+                        break;
+                    case 9: 
+                        GetAllEquipos();
+                        break;
+                    /*case 10: 
+                        GetAllPosiciones();
+                        break;
+                    case 11: 
+                        GetAllJugadores();
+                        break;
+                    case 12: 
+                        GetAllPartidos();
+                        break;*/
                 }
             } while (opcion != 0);
         }
@@ -145,6 +168,48 @@ namespace Torneo.App.Consola
             };
             _repoJugador.AddJugador(jugador, idEquipo, idPosicion);
         }
-
+        private static void GetAllMunicipios()
+        {
+            foreach (var municipio in _repoMunicipio.GetAllMunicipios())
+            {
+                Console.WriteLine(municipio.Id + " " + municipio.Nombre);
+            }
+        }
+        private static void GetAllDTs() 
+        {
+            foreach (var dt in _repoDT.GetAllDTs())
+            {
+                Console.WriteLine(dt.Id + " " + dt.Nombre + " " + dt.Documento + " " + dt.Telefono + " " );
+            }
+        }
+        private static void GetAllEquipos()
+        {
+            foreach (var equipo in _repoEquipo.GetAllEquipos())
+            {
+                Console.WriteLine(equipo.Id + "\t" + equipo.Nombre 
+                + "\t"+ equipo.Municipio.Nombre + "\t" + equipo.DirectorTecnico.Nombre);
+            }
+        }
+        /*private static void GetAllPartidos() //Por implementar
+        {
+            foreach (var partido in _repoPartido.GetAllPartidos())
+            {
+                Console.WriteLine(partido.Id + " " + partido.Nombre);
+            }
+        }
+        private static void GetAllPosiciones() //Por implementar
+        {
+            foreach (var posicion in _repoPosicion.GetAllPosiciones())
+            {
+                Console.WriteLine(posicion.Id + " " + posicion.Nombre);
+            }
+        }
+        private static void GetAllJugadores() //GetAll por implementar
+        {
+            foreach (var jugador in _repoJugador.GetAllJugadores())
+            {
+                Console.WriteLine(jugador.Id + " " + jugador.Nombre);
+            }
+        }*/
     }
 }
