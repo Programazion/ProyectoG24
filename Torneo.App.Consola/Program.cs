@@ -24,7 +24,8 @@ namespace Torneo.App.Consola
                 Console.WriteLine("7. Mostrar Municipios inscritos");
                 Console.WriteLine("8. Mostrar Dts inscritos");
                 Console.WriteLine("9. Mostrar Equipos inscritos");
-                Console.WriteLine("10. Mostrar Jugadores Activos");
+                Console.WriteLine("10. Mostrar las Posiciones de los jugadores");
+                Console.WriteLine("11. Mostrar Todos los jugadores");
                 Console.WriteLine("12. Mostrar Partidos");
                 Console.WriteLine("0. Salir");
                 opcion = Int32.Parse(Console.ReadLine());
@@ -45,7 +46,6 @@ namespace Torneo.App.Consola
                     case 5:
                         AddJugador();
                         break;
-
                     case 6:
                         AddPartido();
                         break;
@@ -58,12 +58,12 @@ namespace Torneo.App.Consola
                     case 9: 
                         GetAllEquipos();
                         break;
-                    /*case 10: //Revisar desde acá todos los GetALl
+                    case 10: 
                         GetAllPosiciones();
                         break;
                     case 11: 
                         GetAllJugadores();
-                        break;*/
+                        break;
                     case 12: 
                         GetAllPartidos();
                         break;
@@ -202,19 +202,19 @@ namespace Torneo.App.Consola
                 + "Marcador Visitante: " + partido.MarcadorVisitante);
             }
         }
-        /*private static void GetAllPosiciones() //Por implementar
+        private static void GetAllPosiciones() 
         {
             foreach (var posicion in _repoPosicion.GetAllPosiciones())
             {
-                Console.WriteLine(posicion.Id + " " + posicion.Nombre);
+                Console.WriteLine("Posición: " + posicion.Id + " \n" + posicion.Nombre);
             }
         }
-        private static void GetAllJugadores() //GetAll por implementar
+        private static void GetAllJugadores()
         {
             foreach (var jugador in _repoJugador.GetAllJugadores())
             {
                 Console.WriteLine(jugador.Id + " " + jugador.Nombre);
             }
-        }*/
+        }
     }
 }
