@@ -25,6 +25,7 @@ namespace Torneo.App.Consola
                 Console.WriteLine("8. Mostrar Dts inscritos");
                 Console.WriteLine("9. Mostrar Equipos inscritos");
                 Console.WriteLine("10. Mostrar Jugadores Activos");
+                Console.WriteLine("12. Mostrar Partidos");
                 Console.WriteLine("0. Salir");
                 opcion = Int32.Parse(Console.ReadLine());
                 switch (opcion)
@@ -52,20 +53,20 @@ namespace Torneo.App.Consola
                         GetAllMunicipios();
                         break;
                     case 8: 
-                        GetAllDTs(); //Revisar desde acá todos los GetALl
+                        GetAllDTs(); 
                         break;
                     case 9: 
                         GetAllEquipos();
                         break;
-                    /*case 10: 
+                    /*case 10: //Revisar desde acá todos los GetALl
                         GetAllPosiciones();
                         break;
                     case 11: 
                         GetAllJugadores();
-                        break;
+                        break;*/
                     case 12: 
                         GetAllPartidos();
-                        break;*/
+                        break;
                 }
             } while (opcion != 0);
         }
@@ -190,14 +191,18 @@ namespace Torneo.App.Consola
                 + "\t"+ equipo.Municipio.Nombre + "\t" + equipo.DirectorTecnico.Nombre);
             }
         }
-        /*private static void GetAllPartidos() //Por implementar
+        private static void GetAllPartidos() 
         {
-            foreach (var partido in _repoPartido.GetAllPartidos())
+            foreach (var partido in _repoPartido.GetAllPartidos()) //Preguntar Local.Nombre
             {
-                Console.WriteLine(partido.Id + " " + partido.Nombre);
+                Console.WriteLine("Fecha: " + partido.FechaHora + "\n" 
+                + "Partido ID: " + partido.Id + "\n" + "Nombre Equipo Local: " + partido.Local.Nombre 
+                + "\n" + "Marcador local: " + partido.MarcadorLocal + "\n" 
+                + "Nombre Equipo Visitante: " + partido.Visitante.Nombre + "\n"  
+                + "Marcador Visitante: " + partido.MarcadorVisitante);
             }
         }
-        private static void GetAllPosiciones() //Por implementar
+        /*private static void GetAllPosiciones() //Por implementar
         {
             foreach (var posicion in _repoPosicion.GetAllPosiciones())
             {
